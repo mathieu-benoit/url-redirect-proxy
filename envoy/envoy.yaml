@@ -25,10 +25,12 @@ static_resources:
               - match:
                   prefix: "/"
                 route:
-                  host_rewrite_literal: google.com
+                  host_rewrite_literal: www.google.com
                   cluster: service_google
           http_filters:
           - name: envoy.filters.http.router
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
 
   clusters:
   - name: service_google
@@ -49,4 +51,4 @@ static_resources:
       name: envoy.transport_sockets.tls
       typed_config:
         "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-        sni: google.com
+        sni: www.google.com
