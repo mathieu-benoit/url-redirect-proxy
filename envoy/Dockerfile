@@ -1,2 +1,2 @@
-FROM envoyproxy/envoy-distroless:v1.19.0
+FROM envoyproxy/envoy-distroless:v1.19.1
 COPY envoy.yaml /etc/envoy/envoy.yaml
